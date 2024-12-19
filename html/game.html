@@ -243,21 +243,82 @@
          moveElement.textContent = "Use w, s, a, d to move and space to jump";
         document.body.appendChild(moveElement);
 
-        // Function to display Game Over
-        function showGameOver() {
-            const gameOverElement = document.createElement("div");
-            gameOverElement.style.position = "absolute";
-            gameOverElement.style.top = "30%";
-            gameOverElement.style.left = "50%";
-            gameOverElement.style.transform = "translate(-50%, -50%)";
-            gameOverElement.style.color = "#FF8700";
-            gameOverElement.style.fontSize = "36px";
-            gameOverElement.style.fontFamily = "Poppins, sans-serif";
-            gameOverElement.style.fontWeight = "800";
-            gameOverElement.style.textAlign = "center";
-            gameOverElement.innerHTML = `Game Over<br>Final Score: ${score}`;
-            document.body.appendChild(gameOverElement);
-        }
+        // // Function to display Game Over
+        // function showGameOver() {
+        //     const gameOverElement = document.createElement("div");
+        //     gameOverElement.style.position = "absolute";
+        //     gameOverElement.style.top = "30%";
+        //     gameOverElement.style.left = "50%";
+        //     gameOverElement.style.transform = "translate(-50%, -50%)";
+        //     gameOverElement.style.color = "#FF8700";
+        //     gameOverElement.style.fontSize = "36px";
+        //     gameOverElement.style.fontFamily = "Poppins, sans-serif";
+        //     gameOverElement.style.fontWeight = "800";
+        //     gameOverElement.style.textAlign = "center";
+        //     gameOverElement.innerHTML = `Game Over<br>Final Score: ${score}`;
+        //     document.body.appendChild(gameOverElement);
+        // }
+
+        // Set a cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = `expires=${date.toUTCString()}`;
+    document.cookie = `${name}=${value};${expires};path=/`;
+}
+
+// Get a cookie
+function getCookie(name) {
+    const nameEQ = `${name}=`;
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+// High score logic
+let highScore = parseInt(getCookie('highScore')) || 0;
+
+// Create a high score display element
+const highScoreElement = document.createElement("div");
+highScoreElement.style.position = "absolute";
+highScoreElement.style.top = "25%";
+highScoreElement.style.right = "5%";
+highScoreElement.style.color = "#0537ce";
+highScoreElement.style.fontSize = "24px";
+highScoreElement.style.fontWeight = "600";
+highScoreElement.style.fontFamily = "Poppins, sans-serif";
+highScoreElement.textContent = `High Score: ${highScore}`;
+document.body.appendChild(highScoreElement);
+
+// Function to display Game Over
+function showGameOver() {
+    const gameOverElement = document.createElement("div");
+    gameOverElement.style.position = "absolute";
+    gameOverElement.style.top = "30%";
+    gameOverElement.style.left = "50%";
+    gameOverElement.style.transform = "translate(-50%, -50%)";
+    gameOverElement.style.color = "#ff8700";
+    gameOverElement.style.fontSize = "36px";
+    gameOverElement.style.fontWeight = "800";
+    gameOverElement.style.fontFamily = "Poppins, sans-serif";
+    gameOverElement.style.textAlign = "center";
+
+    // Check if the current score is the new high score
+    if (score > highScore) {
+        highScore = score;
+        setCookie('highScore', highScore, 30); // Save high score in cookies for 30 days
+        gameOverElement.innerHTML = `Game Over<br>New High Score: ${highScore}`;
+    } else {
+        gameOverElement.innerHTML = `Game Over<br>Final Score: ${score}<br>High Score: ${highScore}`;
+    }
+
+    document.body.appendChild(gameOverElement);
+}
+
 
         // Main animation loop
         function animate() {
@@ -313,8 +374,7 @@
     frames++;
 }
 
-
-        animate(); // Start the animation loop
+animate(); // Start the animation loop
     </script>
 </body>
 
