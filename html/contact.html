@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../style/styleSheet.css">
+    <title>Contact - Anvita Beohar</title>
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <nav>
+        <div class="nav_content">
+            <div class="logo">
+                <a href="index.html"><img src="../images/MyLogo.png" alt="Logo" width="80" height="80"></a>
+            </div>
+            <div class="name">Anvita Beohar</div>
+            <label for="check" class="checkbox">
+                <i class="material-icons">menu</i>
+            </label>
+            <input type="checkbox" name="check" id="check">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_me.html">About me</a></li>
+                <li class="dropdown1">
+                    <a class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="ux.html">UI/UX </a>
+                        <a href="advertising.html">Advertising</a>
+                        <a href="animation.html">Animation</a>
+                        <a href="game.html">Game</a>
+                    </div>
+                </li>
+                <li><a href="contact.html" class="active_link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Contact-->
+    <!-- Form Section -->
+    <section class="section1">
+        <div class="section_container">
+            <!-- <div class="left_side">
+                <h1 class="contact_title">Get in touch!</h1>
+                <p class="description_contact"><i class="material-icons">mail</i>&nbsp;&nbsp;beoharanvita04@gmail.com
+                </p>
+                <p class="description_contact"><i class="material-icons">phone_iphone</i>&nbsp;&nbsp;+353 899414115</p>
+            </div>-->
+
+            <div class="contact_form">
+                <form method="post" name="contact_f"
+                    action="https://script.google.com/macros/s/AKfycbyTDpNbt7I6wVcipkL7IFgMxciurnK5tjLkwNWJNNTLNTSopPC2EdPgs8ECH3gXO2wY/exec">
+                    <h2 class="contact_title">Reach out!</h2>
+                    <div class="input_group">
+                        <!-- <label for="f_name">Your name</label>-->
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="input_group">
+                        <!--<label for="gmail">Email id</label>-->
+                        <input type="email" name="email" placeholder="email id">
+                    </div>
+                    <div class="input_group">
+                        <!--<label for="message">Message</label>-->
+                        <textarea name="message" rows="8" placeholder="Type your message here" required></textarea>
+                    </div>
+                    <button type="submit">Submit</button>
+                    <div class="social_icons">
+                        <a href="https://www.linkedin.com/in/anvita-beohar-93795916b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> 
+                            <i class="fa fa-linkedin-square" style="font-size:38px;color:white"></i>&nbsp;&nbsp;&nbsp; </a>
+                        <a href="https://www.instagram.com/adornedby_anvita?igsh=MXNvcWJ2dXo1NWhpag=="> 
+                               <i class="fa fa-instagram" style="font-size:38px;color:white"></i></a>
+                    </div>
+                   
+                </form>
+            </div>  
+
+           
+        </div>
+    </section>
+    <!--Footer-->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo Section -->
+            <div class="footer-logo">
+                <a href="index.html"><img src="../images/logo_white-02.png" alt="Logo"></a>
+            </div>
+
+            <!-- Navigation Links Section -->
+            <div class="footer-links">
+                <h4><a href="index.html">Home</a></h4>
+                <h4><a href="about_me.html">About me</a></h4>
+            </div>
+
+            <!-- Project Categories Section -->
+            <div class="footer-projects">
+                <h4>Projects</h4>
+                <p><a href="ux.html">UI/UX</a></p>
+                <p><a href="advertising.html">Advertising</a></p>
+                <p><a href="animation.html">Animation</a></p>                
+                <p><a href="game.html">Game</a></p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-contact">
+                <h4><a href="contact.html">Contact</a></h4>
+                <p>
+                    <a href="mailto:beoharanvita04@gmail.com">
+                        <i class="material-icons">mail</i>&nbsp;&nbsp;beoharanvita04@gmail.com
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.linkedin.com/in/anvita-beohar-93795916b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> 
+                        <i class="fa fa-linkedin-square" style="font-size:24px;color:white"></i>&nbsp;&nbsp;&nbsp;linkedin </a>                    
+                </p>
+                <p>
+                    <a href="https://www.instagram.com/adornedby_anvita?igsh=MXNvcWJ2dXo1NWhpag=="> 
+                        <i class="fa fa-instagram" style="font-size:24px;color:white"></i>&nbsp;&nbsp;&nbsp;instagram</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

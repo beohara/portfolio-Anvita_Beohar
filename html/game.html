@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../style/styleSheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>3D Game Trial</title>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav_content">
+            <div class="logo">
+                <a href="index.html"><img src="../images/MyLogo.png" alt="Logo" width="80" height="80"></a>
+            </div>
+            <div class="name">Anvita Beohar</div>
+            <label for="check" class="checkbox">
+                <i class="material-icons">menu</i>
+            </label>
+            <input type="checkbox" name="check" id="check">
+            <ul>
+                <li><a href="index.html" class="active_link">Home</a></li>
+                <li><a href="about_me.html">About me</a></li>
+                <li class="dropdown1">
+                    <a class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="ux.html">UI/UX </a>
+                        <a href="advertising.html">Advertising</a>
+                        <a href="animation.html">Animation</a>
+                        <a href="game.html">Game</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Import ES modules and Three.js library -->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.150.1/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.150.1/examples/jsm/"
+            }
+        }
+    </script>
+
+    <!-- Main JavaScript code -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Create the scene
+        const scene = new THREE.Scene();
+
+        // Set up the camera
+        const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+        );
+        camera.position.set(4.61, 2.74, 8);
+
+        // Create the WebGL renderer
+        const renderer = new THREE.WebGLRenderer({
+            alpha: true, // Transparent background
+            antialias: true // Smoother rendering
+        });
+        renderer.shadowMap.enabled = true; // Enable shadows
+        renderer.setSize(window.innerWidth, window.innerHeight); // Full-screen canvas
+        document.body.appendChild(renderer.domElement);
+
+        // Add OrbitControls for camera interaction
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        // Class definition for Box objects
+        class Box extends THREE.Mesh {
+            constructor({ width, height, depth, color = '#FF8700', velocity = { x: 0, y: 0, z: 0 }, position = { x: 0, y: 0, z: 0 }, zAcceleration = false }) {
+                super(
+                    new THREE.BoxGeometry(width, height, depth), // Geometry
+                    new THREE.MeshStandardMaterial({ color }) // Material
+                );
+
+                // Dimensions and position
+                this.width = width;
+                this.height = height;
+                this.depth = depth;
+                this.position.set(position.x, position.y, position.z);
+
+                // Sides for collision detection
+                this.right = this.position.x + this.width / 2;
+                this.left = this.position.x - this.width / 2;
+                this.bottom = this.position.y - this.height / 2;
+                this.top = this.position.y + this.height / 2;
+                this.front = this.position.z + this.depth / 2;
+                this.back = this.position.z - this.depth / 2;
+
+                // Velocity and gravity
+                this.velocity = velocity;
+                this.gravity = -0.002;
+                this.zAcceleration = zAcceleration;
+            }
+
+            // Update sides for collision detection
+            updateSides() {
+                this.right = this.position.x + this.width / 2;
+                this.left = this.position.x - this.width / 2;
+                this.bottom = this.position.y - this.height / 2;
+                this.top = this.position.y + this.height / 2;
+                this.front = this.position.z + this.depth / 2;
+                this.back = this.position.z - this.depth / 2;
+            }
+
+            // Update box position and apply gravity
+            update(ground) {
+                this.updateSides();
+
+                if (this.zAcceleration) this.velocity.z += 0.0003; // Accelerate along z-axis
+
+                this.position.x += this.velocity.x;
+                this.position.z += this.velocity.z;
+
+                this.applyGravity(ground); // Apply gravity
+            }
+
+            applyGravity(ground) {
+                this.velocity.y += this.gravity;
+
+                // Handle collision with the ground
+                if (boxCollision({ box1: this, box2: ground })) {
+                    const friction = 0.5;
+                    this.velocity.y *= friction; // Reduce velocity
+                    this.velocity.y = -this.velocity.y; // Bounce back
+                } else this.position.y += this.velocity.y;
+            }
+        }
+
+        // Collision detection function
+        function boxCollision({ box1, box2 }) {
+            const xCollision = box1.right >= box2.left && box1.left <= box2.right;
+            const yCollision = box1.bottom + box1.velocity.y <= box2.top && box1.top >= box2.bottom;
+            const zCollision = box1.front >= box2.back && box1.back <= box2.front;
+
+            return xCollision && yCollision && zCollision;
+        }
+
+        // Player's cube
+        const cube = new Box({
+            width: 1,
+            height: 1,
+            depth: 1,
+            velocity: { x: 0, y: -0.01, z: 0 }
+        });
+        cube.castShadow = true; // Enable shadow casting
+        scene.add(cube);
+
+        // Ground box
+        const ground = new Box({
+            width: 10,
+            height: 0.5,
+            depth: 50,
+            color: '#0537ce',
+            position: { x: 0, y: -2, z: 0 }
+        });
+        ground.receiveShadow = true; // Enable shadow receiving
+        scene.add(ground);
+
+        // Add light sources
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.y = 3;
+        light.position.z = 1;
+        light.castShadow = true;
+        scene.add(light);
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.5)); // Ambient light
+
+        // Player controls
+        const keys = { a: { pressed: false }, d: { pressed: false }, s: { pressed: false }, w: { pressed: false } };
+        window.addEventListener('keydown', (event) => {
+            switch (event.code) {
+                case 'KeyA': keys.a.pressed = true; break;
+                case 'KeyD': keys.d.pressed = true; break;
+                case 'KeyS': keys.s.pressed = true; break;
+                case 'KeyW': keys.w.pressed = true; break;
+                case 'Space': cube.velocity.y = 0.08; break; // Jump
+            }
+        });
+
+        window.addEventListener('keyup', (event) => {
+            switch (event.code) {
+                case 'KeyA': keys.a.pressed = false; break;
+                case 'KeyD': keys.d.pressed = false; break;
+                case 'KeyS': keys.s.pressed = false; break;
+                case 'KeyW': keys.w.pressed = false; break;
+            }
+        });
+
+        // Enemy cubes
+        const enemies = [];
+        let frames = 0;
+        let spawnRate = 200; // Enemy spawn interval
+        // Add a score variable
+        let score = 0;
+
+       // Create a score display element
+       const scoreElement = document.createElement("div");
+        scoreElement.style.position = "absolute";
+        scoreElement.style.top = "20%";
+        scoreElement.style.right = "5%";
+        scoreElement.style.color = "#0537ce";
+        scoreElement.style.fontSize = "24px";
+        scoreElement.style.fontFamily = "Poppins, sans-serif";
+        scoreElement.style.fontWeight = "600";
+        scoreElement.textContent = `Score: ${score}`;
+        document.body.appendChild(scoreElement);
+
+        // instruction greeting
+        const instructElement = document.createElement("div");
+        instructElement.style.position = "absolute";
+        instructElement.style.top = "20%";
+        instructElement.style.left = "5%";
+        instructElement.style.color = "#1f1f1f";
+        instructElement.style.fontSize = "24px";
+        instructElement.style.fontFamily = "Poppins, sans-serif";
+        instructElement.style.fontWeight = "600";
+        instructElement.textContent = "The instructions are pretty simple!";
+        document.body.appendChild(instructElement);
+
+         // move instruction
+         const moveElement = document.createElement("div");
+         moveElement.style.position = "absolute";
+         moveElement.style.top = "25%";
+         moveElement.style.left = "5%";
+         moveElement.style.color = "#1f1f1f";
+         moveElement.style.fontSize = "20px";
+         moveElement.style.fontFamily = "Poppins, sans-serif";
+         moveElement.style.fontWeight = "400";
+    
+         moveElement.textContent = "Use w, s, a, d to move and space to jump";
+        document.body.appendChild(moveElement);
+
+        // Function to display Game Over
+        function showGameOver() {
+            const gameOverElement = document.createElement("div");
+            gameOverElement.style.position = "absolute";
+            gameOverElement.style.top = "30%";
+            gameOverElement.style.left = "50%";
+            gameOverElement.style.transform = "translate(-50%, -50%)";
+            gameOverElement.style.color = "#FF8700";
+            gameOverElement.style.fontSize = "36px";
+            gameOverElement.style.fontFamily = "Poppins, sans-serif";
+            gameOverElement.style.fontWeight = "800";
+            gameOverElement.style.textAlign = "center";
+            gameOverElement.innerHTML = `Game Over<br>Final Score: ${score}`;
+            document.body.appendChild(gameOverElement);
+        }
+
+        // Main animation loop
+        function animate() {
+    const animationId = requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+
+    // Update player movement
+    cube.velocity.x = keys.a.pressed ? -0.05 : keys.d.pressed ? 0.05 : 0;
+    cube.velocity.z = keys.s.pressed ? 0.05 : keys.w.pressed ? -0.05 : 0;
+
+    cube.update(ground);
+
+    // Update enemies
+    enemies.forEach((enemy, index) => {
+        enemy.update(ground);
+
+        // Check for collision
+        if (boxCollision({ box1: cube, box2: enemy })) {
+            cancelAnimationFrame(animationId); // Stop animation
+            showGameOver(); // Show Game Over message
+        }
+
+        // Check if enemy is avoided
+        if (enemy.position.z > cube.position.z) {
+            // Increment score when the enemy is successfully avoided
+            score++;
+            scoreElement.textContent = `Score: ${score}`;
+
+            // Remove the enemy from the scene and array
+            scene.remove(enemy);
+            enemies.splice(index, 1);
+        }
+    });
+
+    // Spawn new enemies periodically
+    if (frames % spawnRate === 0) {
+        if (spawnRate > 20) spawnRate -= 20; // Decrease spawn interval
+
+        const enemy = new Box({
+            width: 1,
+            height: 1,
+            depth: 1,
+            position: { x: (Math.random() - 0.5) * 10, y: 0, z: -20 },
+            velocity: { x: 0, y: 0, z: 0.005 },
+            color: 'pink',
+            zAcceleration: true
+        });
+        enemy.castShadow = true;
+        scene.add(enemy);
+        enemies.push(enemy);
+    }
+
+    frames++;
+}
+
+
+        animate(); // Start the animation loop
+    </script>
+</body>
+
+</html>

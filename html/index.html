@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/styleSheet.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Anvita Beohar - Portfolio website</title>
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <nav>
+        <div class="nav_content">
+            <div class="logo">
+                <a href="index.html"><img src="../images/MyLogo.png" alt="Logo" width="80" height="80"></a>
+            </div>
+            <div class="name">Anvita Beohar</div>
+            <label for="check" class="checkbox">
+                <i class="material-icons">menu</i>
+            </label>
+            <input type="checkbox" name="check" id="check">
+            <ul>
+                <li><a href="index.html" class="active_link">Home</a></li>
+                <li><a href="about_me.html">About me</a></li>
+                <li class="dropdown1">
+                    <a class="dropbtn">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="ux.html">UI/UX </a>
+                        <a href="advertising.html">Advertising</a>
+                        <a href="animation.html">Animation</a>
+                        <a href="game.html">Game</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="section1">
+        <div class="section_container">
+            <div class="content">
+                <h1 class="introduction">Hi, I'm Anvita Beohar</h1>
+                <p class="description">
+                    The architect of this site and the imagination behind these projects.
+                    <br>Take a look around<br>— I promise it’s more fun than it sounds!
+                </p>
+                <div class="contact_btn">
+                    <button class="contact_page" id="contact_tab">Reach out!</button>
+                </div>
+            </div>
+            <div class="image">
+                <img src="../images/portfolio.png" alt="portfolio artwork">
+            </div>
+        </div>
+    </section>
+
+    <!--https://youtu.be/45mnmy2JUl0?si=3TG1cUJoD4CMRI8D-->
+    <!--make headings a link add arrow-->
+    <section class="section2">
+        <div class="wrapper">
+            <h2 class="heading_page">My Skills & Expertise</h2>
+            <div class="container">
+                <input type="radio" name="slide" id="c1" checked>
+                <label for="c1" class="card">
+                    <span class="row">
+                        <span class="icon">1</span>
+                        <span class="card_title">
+                            <span><a href="ux.html">UI/UX design </a></span>
+                        </span>
+                    </span>
+                </label>
+
+                <input type="radio" name="slide" id="c2">
+                <label for="c2" class="card">
+                    <span class="row">
+                        <span class="icon">2</span>
+                        <span class="card_title">
+                            <span><a href="advertising.html">Advertising and marketing design</a></span>
+                        </span>
+                    </span>
+                </label>
+                <input type="radio" name="slide" id="c3">
+                <label for="c3" class="card">
+                    <span class="row">
+                        <span class="icon">3</span>
+                        <span class="card_title">
+                            <span><a href="animation.html">Animation</a></span>
+                        </span>
+                    </span>
+                </label>
+                <input type="radio" name="slide" id="c4">
+                <label for="c4" class="card">
+                    <span class="row">
+                        <span class="icon">4</span>
+                        <span class="card_title">
+                            <h4><a href="game.html">Game</a></h4>
+                        </span>
+                    </span>                    
+                </label>
+            </div>
+        </div>
+    </section>
+    <!--Footer-->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo Section -->
+            <div class="footer-logo">
+                <a href="index.html"><img src="../images/logo_white-02.png" alt="Logo"></a>
+            </div>
+
+            <!-- Navigation Links Section -->
+            <div class="footer-links">
+                <h4><a href="index.html">Home</a></h4>
+                <h4><a href="about_me.html">About me</a></h4>
+            </div>
+
+            <!-- Project Categories Section -->
+            <div class="footer-projects">
+                <h4>Projects</h4>
+                <p><a href="ux.html">UI/UX</a></p>
+                <p><a href="advertising.html">Advertising</a></p>
+                <p><a href="animation.html">Animation</a></p>                
+                <p><a href="game.html">Game</a></p>
+            </div>
+
+           <!-- Contact Section -->
+           <div class="footer-contact">
+            <h4><a href="contact.html">Contact</a></h4>
+            <p>
+                <a href="mailto:beoharanvita04@gmail.com">
+                    <i class="material-icons">mail</i>&nbsp;&nbsp;beoharanvita04@gmail.com
+                </a>
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/anvita-beohar-93795916b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> 
+                    <i class="fa fa-linkedin-square" style="font-size:24px;color:white"></i>&nbsp;&nbsp;&nbsp;linkedin </a>                    
+            </p>
+            <p>
+                <a href="https://www.instagram.com/adornedby_anvita?igsh=MXNvcWJ2dXo1NWhpag=="> 
+                    <i class="fa fa-instagram" style="font-size:24px;color:white"></i>&nbsp;&nbsp;&nbsp;instagram</a>
+            </p>
+        </div>
+        </div>
+    </footer>
+    <script src="../javascript/script.js"></script>
+</body>
+
+</html>
