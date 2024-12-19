@@ -1,0 +1,782 @@
+body {
+  font-family: 'poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 1.0rem;
+}
+
+/*Headings*/
+h1.heading_page {
+  display: flex;
+  color: #FF8700;
+  font-weight: 600;
+  font-size: 2.0rem;
+
+}
+
+h2.heading_page {
+  display: flex;
+  color: #1f1f1f;
+  font-weight: 600;
+  font-size: 2.0rem;
+  padding-top: 4rem;
+  padding-right: 4rem;
+}
+
+h2.content_heading {
+  display: flex;
+  color: #1f1f1f;
+  font-weight: 600;
+  font-size: 1.8rem;
+  padding-right: 4rem;
+}
+
+/*Navigation bar*/
+nav {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 99;
+  margin: 0;
+  padding: 0;
+}
+
+.nav_content {
+  max-width: var(--max-width);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.logo {
+  padding-top: 1rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  align-items: center;
+  color: #0537ce;
+}
+
+label.checkbox {
+  display: none;
+}
+
+input#check {
+  display: none;
+}
+
+label.checkbox i {
+  font-size: 2rem;
+  color: #1f1f1f;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  transition: right 0.3s;
+}
+
+ul li a {
+  padding: 1rem 2rem;
+  border: 2px solid transparent;
+  text-decoration: none;
+  font-weight: 400;
+  color: #1f1f1f;
+  font-size: 1.15rem;
+}
+
+ul li a:hover {
+  border-bottom-color: #FF8700;
+}
+
+ul li a.active_link {
+  border-bottom-color: #FF8700;
+  color: #0537ce;
+  /* background-color: aliceblue;*/
+}
+
+
+@media(width<920px) {
+
+
+  ul {
+    position: fixed;
+    width: 100%;
+    right: -150%;
+    height: calc(100vh - 85px);
+    top: 100px;
+    background-color: white;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  label.checkbox {
+    display: block;
+  }
+
+  input#check:checked~ul {
+    right: 0;
+  }
+
+}
+
+/*dropdown*/
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 180px;
+
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #1f1f1f;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown1:hover .dropdown-content {
+  display: block;
+}
+
+/*Footer*/
+/* Footer Styles */
+.footer {
+  color: #fff;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  max-height: 250px;
+  /*background: url(../images/footer_bg.png) 460px 5px no-repeat, #1f1f1f;
+  background-size: 60%;
+  */
+  background: #1f1f1f;
+  align-items: end;
+}
+
+
+
+.footer-content {
+  display: flex;
+  gap: 80px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.footer-logo img {
+  max-width: 200px;
+}
+
+.footer-links,
+.footer-projects,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links h4,
+.footer-projects h4,
+.footer-contact h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-projects a,
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.footer-contact a {
+  display: flex;
+  align-items: center;
+}
+
+.footer-contact a::before {
+  margin-right: 8px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styling */
+@media (max-width: 920px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+
+/*Page intro*/
+
+.section1 {
+  display: block;
+  width: 100%;
+  background:
+    /* url(images/portfolio.png) no-repeat 90% 50%, url(images/line_elipse.png) no-repeat right -70px bottom -80px, url(images/solid_elipse.png) no-repeat left -250px top -220px*/
+    url(images/portfolio_bg.png) no-repeat center;
+  background-color: #0537ce;
+  background-size: cover;
+}
+
+
+.section_container {
+  min-height: 80vh;
+  max-width: var(--max-width);
+  margin: auto;
+  padding-left: 3rem;
+  padding-right: 4rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 4rem;
+}
+
+.introduction {
+  font-size: 2.5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  color: white;
+
+}
+
+.description {
+  line-height: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+
+}
+
+.contact_btn {
+  margin-top: 2rem;
+}
+
+.contact_page {
+  background-color: #FF8700;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: large;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.project:hover {
+  background-color: hwb(32 29% 0%);
+}
+
+/*portfolio artwork image*/
+.image {
+  display: grid;
+  align-content: center;
+  grid-column-end: 4;
+}
+
+.image img {
+  width: max(28rem);
+}
+
+@media(max-width<920px) {
+  .image img {
+    width: max(20rem);
+  }
+}
+
+
+
+/*project categories section*/
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(images/homepagebg-02.png) -150px 350px no-repeat, url(images/homepagebg-03.png) 1080px 2px no-repeat;
+  background-size: 40%;
+}
+
+.container {
+  height: 400px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: start;
+}
+
+.card {
+  width: 80px;
+  border-radius: .75rem;
+  background-size: cover;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 0 10px;
+  display: flex;
+  align-items: flex-end;
+  transition: .6s cubic-bezier(.28, -0.03, 0, .99);
+  box-shadow: 0px 10px 20px -5px rgba(74, 73, 73, 0.8);
+}
+
+.card>.row {
+  color: #1f1f1f;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.card>.row>.icon {
+  background: #223;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.card>.row>.card_title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 80px;
+  width: 520px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition-delay: .3s;
+  transition: all .3s ease;
+  text-decoration: none;
+
+}
+
+
+.card_title {
+  color: #1f1f1f;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.card_title span:hover {
+  color: #0537ce;
+
+}
+
+.container input {
+  display: none;
+}
+
+.container input:checked+label {
+  width: 700px;
+}
+
+.container input:checked+label .card_title {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/*images from freepik edited with illustrator*/
+.card[for="c1"] {
+  background-image: url("../images/ui_ux.jpg");
+}
+
+.card[for="c2"] {
+  background-image: url("../images/advertising.jpg");
+}
+
+.card[for="c3"] {  
+  background-image: url("../images/animation.jpg");
+}
+
+.card[for="c4"] {
+  background-image: url("../images/Game-02.jpg");
+}
+
+/*About me page edits*/
+
+.about_me {
+  display: block;
+  width: 100%;
+
+}
+
+.container_1 {
+  display: flex;
+}
+
+/*
+.container_1>div {
+  margin: 10px;
+  
+  padding-left: 30px;
+  padding-right: 30px;
+}*/
+
+.description_page {
+  padding-right: 20px;
+}
+
+
+/*self potrait artwork image*/
+img#self_image {
+  display: flex;
+}
+
+#self_image img {
+  width: max(28rem);
+
+}
+
+/*My skills section About me page*/
+/* Skills Section */
+.icon-circle:hover {
+  transform: scale(1.1);
+  /* Slightly scales up on hover */
+}
+
+.skills_h {
+  margin: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.skill p {
+  margin-top: 1px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f1f1f;
+}
+
+.icon-circle {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-circle img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+
+
+/*Projects page edits*/
+
+/*Advertising*/
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0 8px;
+  justify-content: left;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%;
+  flex: 20%;
+  max-width: 20%;
+  padding: 0 8px;
+}
+
+.column img {
+  margin-top: 16px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.column img:hover {
+  transform: scale(1.1);
+  /* Slightly scales up on hover */
+}
+
+.column video {
+  margin-top: 16px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.column video:hover {
+  transform: scale(1.1);
+}
+
+.adv_description {
+  color: #1f1f1f;
+}
+
+.adv_section {
+  max-width: var(--max-width);
+  margin: auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 2rem;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 920px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+
+/*Contact page*/
+::placeholder {
+  color: white;
+  opacity: 1;
+  font-family: 'poppins', sans-serif;
+  font-size: 1rem;
+  /* Firefox */
+}
+
+
+.contact_form {
+  width: 100%;
+
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social_icons{
+position: relative;
+padding: 20px 0;
+}
+
+form {
+  width: 100%;
+  max-width: 600px;
+}
+
+.input_group {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.input_group input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  outline: 0;
+  border: 1px solid #fff;
+  color: white;
+  background: transparent;
+  font-size: 15px;
+}
+
+
+.contact_form button {
+  padding: 10px 0;
+  background-color: #FF8700;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: large;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 30%;
+
+}
+
+.contact_form button:hover {
+  background-color: hwb(32 29% 0%);
+}
+
+.contact_title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.description_contact {
+  color: #fff;
+}
+
+.left_side {
+  max-width: 50%;
+}
+
+/*UI UX page*/
+
+.ux_section {
+  display: block;
+  width: 100%;
+  background:
+    url(../images/ux/flower_1-02.png) 65% -30px no-repeat,
+    url(../images/ux/flower_2-02.png)95% 1% no-repeat,
+    url(../images/ux/flower_3-02.png) 60% 70%no-repeat,
+    url(../images/ux/flower_4-02.png) 95% 40% no-repeat,
+    url(../images/ux/flower_5-02.png) 65% 34% no-repeat,
+    url(../images/ux/flower_6-02.png) 80% 99% no-repeat,
+    url(../images/ux/flower_7-02.png) 98% 87%no-repeat;
+  background-size: 140px;
+
+}
+
+.ux_1 {
+  display: flex;
+
+}
+
+.ux_container {
+  margin: auto;
+  padding: 3rem;
+}
+
+.content_2 {
+  max-width: 50%;
+  padding-right: 10rem;
+}
+
+
+
+
+
+/*wedding_mockup artwork image*/
+img#wedding_mockup {
+  display: flex;
+  justify-content: right;
+  max-width: 60%;
+
+}
+
+#wedding_mockup img {
+  width: max(35rem);
+}
+
+.ux_section1 {
+  display: block;
+  width: 100%;
+}
+
+video#prototype_video {
+  display: flex;
+
+}
+
+#prototype_video video {
+  width: max(40rem);
+  overflow: hidden;
+}
+
+.uxdescription_page {
+  max-width: 80%;
+}
+
+.ux_2 {
+  display: flex;
+}
+
+.ux_container1 {
+  margin: auto;
+
+
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 3rem;
+}
+
+.content_3 {
+  right: 20%;
+}
+
+/*advertising  page favorite*/
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.favorite-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  background-color: white;
+  border: 1px;
+  border-radius: 70%;
+  font-size: 20px;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.favorite-btn.favorited {
+  background-color: white;
+  color: red;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.1);
+}
