@@ -1,0 +1,27 @@
+{
+    "section": [
+        {
+            "heading": "Animations",
+            "subheading": "Hand-drawn Animations",
+            "description": "These frame-by-frame animations highlight the power of hand-drawn visuals, with each frame crafted to capture motion, personality, and emotion. From the mystical to the playful, each piece tells a unique story through smooth transitions and vibrant colors.",
+            "videos": [
+                {
+                    "src": "../images/animations/snape_1.mp4",
+                    "alt": "Snape animation frame by frame"
+                },
+                {
+                    "src": "../images/animations/hand_heart.mp4",
+                    "alt": "Hand-drawn heart animation"
+                },
+                {
+                    "src": "../images/animations/Blum_invite.mp4",
+                    "alt": "Blum animated invitation"
+                },
+                {
+                    "src": "../images/animations/sassy_cat.mp4",
+                    "alt": "Sassy cat animation"
+                }
+            ]
+        }
+    ]
+}

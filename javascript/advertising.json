@@ -1,0 +1,117 @@
+{
+    "section": [
+        {
+            "heading": "Advertising and Marketing Design",
+            "subheading": "Ittisa",
+            "description": "Ittisa one of India’s top full service digital marketing agency which has worked with big brands such as ITC, Reliance, Airtel, Dharma productions and many more. As a design intern I got the opportunity to work on social media content, banners, logo and UI design for multiple brands.",
+            "images": [
+                {
+                    "src": "../images/ittisa/1.png",
+                    "alt": "social media post for ittisa for dog food brand"
+                },
+                {
+                    "src": "../images/ittisa/2.jpg",
+                    "alt": "social media post for ittisa for instant noodles sunfeast brand"
+                },
+                {
+                    "src": "../images/ittisa/3.png",
+                    "alt": "social media post for ittisa for a dairy brand"
+                },
+                {
+                    "src": "../images/ittisa/4.png",
+                    "alt": "social media post for ittisa for dog food brand"
+                },
+                {
+                    "src": "../images/ittisa/5.jpg",
+                    "alt": "social media post for ittisa for organic food brand"
+                },
+                {
+                    "src": "../images/ittisa/6.png",
+                    "alt": "social media post for ittisa for a dairy brand"
+                },
+                {
+                    "src": "../images/ittisa/7.jpg",
+                    "alt": "social media post for ittisa for instant noodles sunfeast brand"
+                },
+                {
+                    "src": "../images/ittisa/8.png",
+                    "alt": "social media post for ittisa for dog food brand"
+                },
+                {
+                    "src": "../images/ittisa/9.png",
+                    "alt": "social media post for ittisa for dog food brand"
+                },
+                {
+                    "src": "../images/ittisa/10.png",
+                    "alt": "social media post for ittisa for organic food brand"
+                },
+                {
+                    "src": "../images/ittisa/11.png",
+                    "alt": "social media post for ittisa for a dairy brand"
+                },
+                {
+                    "src": "../images/ittisa/12.png",
+                    "alt": "social media post for ittisa for organic food brand"
+                },
+                {
+                    "src": "../images/ittisa/13.png",
+                    "alt": "social media post for ittisa for instant noodles sunfeast brand"
+                },
+                {
+                    "src": "../images/ittisa/14.jpg",
+                    "alt": "social media post for ittisa for organic food brand"
+                }
+            ]
+        },
+        {
+            "subheading": "Qubag",
+            "description": "Qubag is a startup that currently provides services in Hyderabad and Vijayawada. It’s a subscription-based model also called as a micro delivery model of operations. Qubag fulfils the daily needs of customers with products such as - no prior shelf life, essentials, personal care items, and stationary products.",
+            "images": [
+                {
+                    "src": "../images/qubag/1.jpg",
+                    "alt": "social media post for qubag with nutrition facts about almonds"
+                },
+                {
+                    "src": "../images/qubag/2.jpg",
+                    "alt": "social media post for qubag with nutrition facts about avocados"
+                },
+                {
+                    "src": "../images/qubag/3.jpg",
+                    "alt": "social media post for qubag with nutrition facts about bananas"
+                },
+                {
+                    "src": "../images/qubag/4.jpg",
+                    "alt": "social media post for qubag with nutrition facts about beetroots"
+                },
+                {
+                    "src": "../images/qubag/5.jpg",
+                    "alt": "social media post for qubag with nutrition facts about bell peppers"
+                },
+                {
+                    "src": "../images/qubag/6.jpg",
+                    "alt": "social media post for qubag with nutrition facts about coconuts"
+                },
+                {
+                    "src": "../images/qubag/7.jpg",
+                    "alt": "social media post for qubag with tagline for green tea"
+                },
+                {
+                    "src": "../images/qubag/8.jpg",
+                    "alt": "social media post for qubag with creative for rainy season"
+                },
+                {
+                    "src": "../images/qubag/9.jpg",
+                    "alt": "social media post for qubag with nutrition facts about papaya"
+                },
+                {
+                    "src": "../images/qubag/10.jpg",
+                    "alt": "social media post for qubag with nutrition facts about pineapples"
+                },
+                {
+                    "src": "../images/qubag/11.jpg",
+                    "alt": "social media post for qubag with nutrition facts about pomegranate"
+                }
+            ]
+        }
+    ]
+}
